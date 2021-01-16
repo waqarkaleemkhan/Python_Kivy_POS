@@ -1,0 +1,138 @@
+<FlatButton@ButtonBehavior+Label>:
+    font_size:14
+
+<OperatorWindow>
+    id:main_win
+    orientation:'vertical'
+    canvas.before:
+        Color:
+            rgba:(1,1,1,1)
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    
+    BoxLayout:
+        id:header
+        size_hint_y:None
+        height:40
+        canvas.before:
+            Color:
+                rgba:(.06,.45,.45,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            text:'Swat Cash and Carry System'
+            size_hint_x:.9
+            bold:True
+            color:(1,1,1,1)
+
+        FlatButton: ##this is the dropdown button
+            id:loggedin_user
+            text:'waqar'
+            color:(1,1,1,1)
+    
+    BoxLayout:
+        id:current
+        size_hint_y:None
+        height:50
+        canvas.before:
+            Color:
+                rgba:(.06,.45,.45,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Button:
+            text:'Current'
+            background_normal:''
+            background_color:(.06,.32,.32,1)
+            size_hint_x: .4
+        Button:
+            id:cur_product
+            text:'Default Product'
+            background_normal:''
+            background_color:(.06,.4,.4,1)
+        Button:
+            id:cur_price
+            text:'0.00'
+            background_normal:''
+            background_color:(.06,.65,.65,1)
+            size_hint_x: .2
+    BoxLayout: #this is the main layout
+        BoxLayout:##this is the left layout like div row is equal to 10
+            id:Product_details
+            orientation: 'vertical'
+            size_hint_x:.8
+
+            BoxLayout: # this is the header of left layout
+                id:product_labels
+                size_hint_y:None
+                height:50
+                canvas.before:
+                    Color:
+                        rgb:(.06,.45,.45,1)
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                FlatButton:
+                    text:'Qty'
+                    size_hint_x:.1
+                FlatButton:
+                    text:'Products Code'
+                    size_hint_x:.2
+                FlatButton:
+                    text:'Disc'
+                    size_hint_x:.1
+                FlatButton:
+                    text:'Disc %'
+                    size_hint_x:.2
+                FlatButton:
+                    text:'VAT'
+                    size_hint_x:.1
+                FlatButton:
+                    text:'Price'
+                    size_hint_x:.1
+                FlatButton:
+                    text:'Product Total'
+                    size_hint_x:.2
+            BoxLayout: # this is the text field in the left layout after buttons
+                id:product_inputs
+                size_hint_y:None
+                height:30
+                TextInput:
+                    id:qty_input
+                    size_hint_x:.1
+                TextInput:
+                    id:code_input
+                    size_hint_x:.2
+                TextInput:
+                    id:disc_input
+                    size_hint_x:.1
+                TextInput:
+                    id:disc_perc_input
+                    size_hint_x:.2
+                TextInput:
+                    id:vat_input
+                    size_hint_x:.1
+                TextInput:
+                    id:price_input
+                    size_hint_x:.1
+                TextInput:
+                    id:total_input
+                    size_hint_x:.2
+            
+
+           
+                
+
+
+
+
+
+        BoxLayout:#this is the right layout like div row is equal to 2
+            id:preview
+            orientation: 'vertical'
+            size_hint_x:.2
+
+
+
