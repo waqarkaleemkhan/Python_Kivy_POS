@@ -1,0 +1,85 @@
+<FlatButton@ButtonBehavior+Label>: #FlateButton is Our Button its inherit from Button Behavior which give us more preperty of the button and we + Label To accsses the labeles and set the font with of that
+    font_size:16
+<SigninWindow>:
+    ##with this id we are using to call the elements of the main window like in the html
+    id: main_win
+    orientation: 'vertical'
+    spacing:10
+    space_x:self.size[0]/3
+    ## is like a white board and the before property is that before any widget do this and like other framework the kivy color is not from 0 to 255 rgb it is from 0 to 1
+    canvas.before:
+        Color:
+            rgb:(1,1,1,1)
+        Rectangle:
+            size:self.size
+            pos:self.pos 
+
+    BoxLayout: # this is over header navbar of box
+        size_hint_y:None
+        height:50
+        canvas.before:
+            Color:
+                rgb:(.06,.45,.45,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos 
+        Label:
+            text:"Access Control"
+            bold:True
+            ## the widget by default give 100 percent of space which is 1:1 but we will give it .9 becuse our label we have given 90 percent of width
+            ## x is the width and y is the height
+            size_hint_x:.9 
+        FlatButton:
+            text: "x"
+            size_hint_x:.1
+    
+
+    BoxLayout:
+        orientation: 'vertical'
+        ## in the padding we are using the id of main class and callin the object that class and the 10 is the padding value in pixel of y which is the height
+        padding: main_win.space_x, 10 
+        #spacing:20
+        BoxLayout:
+            orientation: 'vertical'
+            spacing:10
+            size_hint_y:None
+            height:100
+            Label:
+                id:info
+                text:''
+                markup:True
+                size_hint_y:None
+                height:20
+            TextInput:
+                id:username_field
+                hint_text:"Username"
+                multiline:False
+                focus:True # focus is for when window launch the cursor in username field
+                ##and this is when hit enter the the cursor goes to password field
+                on_text_validate:pwd_field.focus=True 
+            TextInput:
+                id:pwd_field
+                hint_text:"Password"
+                multiline:False  
+                ##this is for making text ****
+                password:True 
+                ##when the password enter call validate user and login user if the password match in database
+                on_text_validate:root.validate_user() 
+                
+        Label:
+            id:sp
+            size_hint_y:None
+            height:40
+        Button:
+            text: "Signin"
+            size_hint_y:None
+            height:40
+            background_color:(.06,.45,.45,1)
+            ##background is by default the image with label and its background is like the window so it mix with that so for removing that we use this property to be empty backgrond
+            background_normal:'' 
+            ##this is when button is release from mouse then call the function
+            on_release:root.validate_user() 
+        Label:
+            id:sp2
+                
+                
