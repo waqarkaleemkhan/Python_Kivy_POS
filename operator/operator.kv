@@ -59,8 +59,10 @@
             background_color:(.06,.65,.65,1)
             size_hint_x: .2
     BoxLayout: #this is the main layout
+        padding:5
         BoxLayout:##this is the left layout like div row is equal to 10
             id:Product_details
+            spacing:10
             orientation: 'vertical'
             size_hint_x:.8
 
@@ -97,6 +99,8 @@
                     size_hint_x:.2
             BoxLayout: # this is the text field in the left layout after buttons
                 id:product_inputs
+                spacing:5
+                
                 size_hint_y:None
                 height:30
                 TextInput:
@@ -122,7 +126,46 @@
                     size_hint_x:.2
             
 
-           
+            BoxLayout: ## this is the thire layout in the left box
+                id:add_to_cart
+                orientation: 'vertical'
+                BoxLayout:
+                    size_hint_y:None
+                    height:30
+                    canvas.before:
+                        Color:
+                            rgb:(.06,.45,.45,1)
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+                    Label:
+                        text:'Code'
+                        size_hint_x:.3
+                        multiline:False
+                    Label:
+                        text:'Product Name'
+                        size_hint_x:.2
+                        multiline:False
+                    Label:
+                        text:'Qty'
+                        size_hint_x:.1
+                        multiline:False
+                    Label:
+                        text:'Disc'
+                        size_hint_x:.1
+                        multiline:False
+                    Label:
+                        text:'Price'
+                        size_hint_x:.1
+                        multiline:False
+                    Label:
+                        text:'Product Total'
+                        size_hint_x:.2
+                        multiline:False
+               
+                BoxLayout:
+                    id:products
+
                 
 
 
