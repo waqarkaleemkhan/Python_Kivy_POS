@@ -106,24 +106,32 @@
                 TextInput:
                     id:qty_input
                     size_hint_x:.1
+                    multiline:False
                 TextInput:
                     id:code_input
                     size_hint_x:.2
+                    multiline:False
+                    on_text_validate:root.update_purchases()
                 TextInput:
                     id:disc_input
                     size_hint_x:.1
+                    multiline:False
                 TextInput:
                     id:disc_perc_input
                     size_hint_x:.2
+                    multiline:False
                 TextInput:
                     id:vat_input
                     size_hint_x:.1
+                    multiline:False
                 TextInput:
                     id:price_input
                     size_hint_x:.1
+                    multiline:False
                 TextInput:
                     id:total_input
                     size_hint_x:.2
+                    multiline:False
             
 
             BoxLayout: ## this is the thire layout in the left box
@@ -141,31 +149,31 @@
                     Label:
                         text:'Code'
                         size_hint_x:.3
-                        multiline:False
+                       
                     Label:
                         text:'Product Name'
                         size_hint_x:.2
-                        multiline:False
+                       
                     Label:
                         text:'Qty'
                         size_hint_x:.1
-                        multiline:False
+                       
                     Label:
                         text:'Disc'
                         size_hint_x:.1
-                        multiline:False
+                       
                     Label:
                         text:'Price'
                         size_hint_x:.1
-                        multiline:False
+                       
                     Label:
                         text:'Product Total'
                         size_hint_x:.2
-                        multiline:False
+                       
                
-                BoxLayout:
+                GridLayout:
                     id:products
-
+                    cols:1
                 
 
 
@@ -176,6 +184,23 @@
             id:preview
             orientation: 'vertical'
             size_hint_x:.2
+
+            TextInput:
+                id:receipt_preview
+                readonly:True
+                text:'Swat Cash and Carry\nKanju Chowk\nSwat , KPK\n\nTel:03470003510\nReceipt No: \nDate: \n\n'
+    BoxLayout:
+        id:footer
+        size_hint_y:None
+        height:30
+        canvas.before:
+            Color:
+                rgb:(.06,.47,.47,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            text:'Develop by waqar'
 
 
 
